@@ -1,10 +1,8 @@
-import React, {useEffect, useState, useRef} from "react";
-import tick from '../assets/pomodoroClick.m4a'
+import React, {useEffect, useState} from "react";
+
 
 const Pomodoro = (props) => {
 
-    const clockSound = new Audio(tick)
-    const [toggleSound, setToggleSound] = useState(true)
     const [focusTime, setFocusTime] = useState(props.userSettings[0])
     const [breakTime, setBreakTime] = useState(props.userSettings[1])
     const [timer, setTimer] = useState(focusTime * 60);
