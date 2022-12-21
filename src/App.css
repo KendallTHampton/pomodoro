@@ -1,38 +1,300 @@
-.App {
+:root {
+  --main-bg-color: #212738;
+  --main-text-color: #F0F2EF;
+  --secondary-bg-color: #7E8287;
+  --alt-bg-color: #FF8360;
+  --alt-text-color: #0d162eef;
+
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  scroll-behavior: smooth;
+
+}
+
+
+body {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  background: var(--main-bg-color);
+  color: var(--main-text-color);
+}
+
+
+
+
+
+/* Main  */
+
+.main {
   text-align: center;
+  height: 100vh;
+  background: var(--main-bg-color);
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.main .title {
+  padding-top: 30px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.settings-button {
+  margin-top: 40px;
+  padding: 15px;
+  font-size: 18px;
+  font-weight: 600;
+  background: var(--secondary-bg-color);
+  color: var(--main-text-color);
+  border: 1px solid rgb(0, 0, 0);
+  cursor: pointer;
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.5);
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.settings-button p {
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.settings-button:hover {
+  background-color: var(--alt-bg-color);
+  transition: .3s;
+}
+
+
+
+
+/* Pomodoro Component */
+
+.pomodoro-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+  padding: 20px 0px;
+}
+
+.mode {
+  font-size: 30px;
+  font-weight: 800;
+  margin: 30px;
+  padding: 5px;
+  border-radius: 5px;
+  color: var(--main-text-color);
+}
+
+.time-display {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 30px;
+  width: 250px;
+  height: 250px;
+  padding: 10px;
+  border-radius: 50%;
+  color: #F0F2EF;
+}
+
+.pomodoro-actions {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.pomodoro-actions button {
+  padding: 10px;
+  font-size: 20px;
+  font-weight: 600;
+  background: white;
+  border: 1px solid rgb(0, 0, 0);
+  cursor: pointer;
+}
+
+.pomodoro-actions button:hover {
+  background: rgb(217, 217, 217);
+  transition: .5s;
+}
+
+
+/* Setting Modal */
+
+.backdrop {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.settings__overlay {
+  position: fixed;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: 350px;
+  width: 400px;
+  background-color: var(--alt-bg-color);
+  border-radius: 10px;
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.5);
+}
+
+.settings__form {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 80%;
+}
+
+.settings__overlay h1 {
+  text-align: center;
+  color: black;
+}
+
+.settings__options {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  padding: 20px;
+  gap: 1rem;
+  flex: 1;
 }
 
-.App-link {
-  color: #61dafb;
+.settings__options label {
+  font-size: 20px;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.settings__options input {
+  width: 50px;
+  padding: 5px;
+  font-size: 16px;
+  border: 1px solid rgb(0, 0, 0);
+  margin: 0px 10px;
+  color: black;
+
+}
+
+.settings__options span {
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.settings__overlay form button {
+  padding: 10px;
+  font-size: 16px;
+  font-weight: 600;
+  color: black;
+  background: white;
+  border: 1px solid rgb(0, 0, 0);
+  cursor: pointer;
+  align-self: center;
+}
+
+
+
+
+
+
+@media screen and (max-width: 768px) {
+
+
+  /* Main App */
+  .main {
+    height: 90vh;
   }
-  to {
-    transform: rotate(360deg);
+
+
+  .main .title {
+    padding-top: 20px;
   }
+
+  .title {
+    font-size: 26px;
+  }
+
+  .settings-button {
+    margin-top: 60px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 10px;
+    font-weight: 600;
+    width: 75%;
+  }
+
+  .settings-button:hover {
+    background-color: #7E8287;
+  }
+
+  .settings-button p {
+    font-size: 20px;
+    font-weight: 500;
+  }
+
+  /* Settings Modal */
+  .backdrop {
+    height: 90vh;
+
+  }
+
+  .settings__overlay {
+    width: 300px;
+    height: 300px;
+  }
+
+  .settings__options input {
+    width: 50px;
+  }
+
+  .settings__options span {
+    font-size: 10px;
+  }
+
+  .settings__options label {
+    font-size: 16px;
+  }
+
+  .settings__overlay h1 {
+    font-size: 30px;
+  }
+
+  .settings__overlay form button {
+    font-size: 20px;
+  }
+
+  .time-display {
+    width: 200px;
+    height: 200px;
+  }
+
+  .time-display h1 {
+    font-size: 45px;
+  }
+
+  .time-display h2 {
+    font-size: 20px;
+  }
+
+  .pomodoro-actions button {
+    font-size: 16px;
+    padding: 10px;
+  }
+
+  .pomodoro-actions {
+    gap: 15px;
+
+  }
+
+  .pomodoro-container {
+    padding: 10px 0px;
+  }
+
 }
