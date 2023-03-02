@@ -9,7 +9,7 @@ const whichModalInitialState = {
     isColorModalOpen: false,
 }
 
-const GlobalReducer = (state, action) => {
+const whichModalReducer = (state, action) => {
     switch (action.type) {
         case 'TOGGLE_SETTINGS_MODAL':
             return {
@@ -55,7 +55,7 @@ const GlobalReducer = (state, action) => {
 
 const DataProvider = ({children}) => {
     // Modal Controls
-    const [whichModal, dispatchWhichModal] = useReducer(GlobalReducer, whichModalInitialState)
+    const [whichModal, dispatchWhichModal] = useReducer(whichModalReducer, whichModalInitialState)
 
 
     const [userSettings, setUserSettings] = useState({
@@ -78,7 +78,7 @@ const DataProvider = ({children}) => {
                 ...prevState,
                 ...data
             }))
-            dispatchWhichModal({type: 'UPDATE_SETTINGS', payload: data})
+
         }
     }
 
