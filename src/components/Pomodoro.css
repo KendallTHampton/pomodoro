@@ -1,0 +1,140 @@
+.pomodoro-container {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    margin: 3rem auto;
+    padding: 1rem;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.5);
+    border-radius: 5px;
+    background: #c9c9c983;
+    width: 600px;
+    height: 60%;
+
+}
+
+.pomodoro-container-glass {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+    filter: blur(10px);
+    z-index: -1;
+
+}
+
+
+.modes {
+    display: flex;
+    flex-direction: row;
+    gap: .5rem;
+}
+
+.mode-text {
+    font-size: 16px;
+    font-weight: 600;
+    border-radius: 5px;
+    padding: .25rem 1rem;
+    cursor: pointer;
+    color: var(--main-text-color);
+}
+
+.mode-text:active {
+    position: relative;
+    top: .2rem;
+
+}
+
+.mode-text.active {
+    background-color: rgba(0, 0, 0, 0.387);
+}
+
+
+.time-display {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 4rem;
+    color: #F0F2EF;
+}
+
+.pomodoro-actions {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+
+.settings-button {
+    cursor: pointer;
+    margin: .5rem auto;
+    display: flex;
+    width: 110px;
+    align-items: center;
+    justify-content: center;
+    background: #ffffff;
+    border: none;
+    font-weight: 500;
+    font-size: 18px;
+    padding: 10px;
+    border-radius: 10px;
+    gap: .25rem;
+    box-shadow: 0 .3rem rgb(198, 198, 198);
+}
+
+.start-button {
+    font-weight: 600;
+
+}
+
+.settings-button.active {
+    position: relative;
+    box-shadow: none;
+    top: .3rem;
+
+}
+
+
+.settings-button:active {
+    position: relative;
+    box-shadow: none;
+    top: .3rem;
+
+}
+
+@media screen and (max-width: 768px) {
+    .time-display {
+        width: 200px;
+        height: 200px;
+    }
+
+    .time-display h1 {
+        font-size: 45px;
+    }
+
+    .time-display h2 {
+        font-size: 40px;
+    }
+
+    .pomodoro-actions button {
+        font-size: 16px;
+        padding: 10px;
+    }
+
+    .pomodoro-actions {
+        gap: 15px;
+
+    }
+
+    .pomodoro-container {
+        padding: 10px 0px;
+    }
+
+}

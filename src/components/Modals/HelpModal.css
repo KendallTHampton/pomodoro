@@ -1,0 +1,84 @@
+.helpModal-container {
+    padding: 1rem;
+}
+
+.subjects {
+    display: flex;
+    gap: 1rem;
+    margin: .75rem auto;
+    justify-content: space-between;
+}
+
+.subject {
+    padding: .5rem 1rem;
+    border-radius: 10px;
+    background-color: #000000aa;
+    color: #fff;
+    opacity: 25%;
+    cursor: pointer;
+    transition: .4s;
+    font-weight: 600;
+}
+
+.subject:active {
+    position: relative;
+    top: 2px;
+
+}
+
+.subject.active {
+    background-color: #000000;
+    opacity: 1;
+    transition: .4s;
+}
+
+.helpModal-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+}
+
+.helpModal-subject {
+    margin-top: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: .25rem;
+}
+
+.helpModal-title {
+    color: #0eb3ae;
+    margin-bottom: .25rem;
+}
+
+
+.helpModal-description {
+    color: #525252;
+    font-weight: 400;
+    line-height: 1.4rem;
+}
+
+.emphasis {
+    color: #000000;
+    font-weight: 700;
+}
+
+.helpModal-instructions {
+    display: flex;
+    flex-direction: column;
+    gap: .8rem;
+}
+
+.helpModal-instructions li::marker {
+    color: #42464e82;
+    font-weight: 700;
+    font-size: 18px;
+}
+
+
+.step {
+    color: #000000;
+    font-weight: bold;
+    font-size: 18px;
+}

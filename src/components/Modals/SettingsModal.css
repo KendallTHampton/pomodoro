@@ -1,0 +1,151 @@
+.settingsModal__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem;
+}
+
+.settingsModal__header button {
+    border: none;
+    background-color: black;
+    padding: .5rem;
+    width: 2rem;
+    height: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    cursor: pointer;
+    color: #ffffff;
+    background-color: rgb(199, 199, 199);
+}
+
+.settingsModal__closeButton {
+    border: none;
+    cursor: pointer;
+    font-size: 24px;
+}
+
+.settingsModal__body {
+    padding: 1rem;
+}
+
+.category {
+    margin-bottom: 2rem;
+}
+
+.category-header {
+    display: flex;
+    align-items: center;
+    gap: .5rem;
+    color: #0fa7a28f;
+    margin-bottom: 1rem;
+}
+
+.timerInputs {
+    margin-top: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 2rem;
+}
+
+.time-settings-inputs {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+}
+
+.time-settings-input {
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+}
+
+.time-settings-input {
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+
+}
+
+.time-settings-input p {
+    display: flex;
+    flex-direction: column;
+    gap: .25rem;
+    font-weight: 700;
+    color: #aeaeae;
+}
+
+.time-settings-input input {
+    border-radius: 5px;
+    border: none;
+    border-bottom: 1px solid #a0a0a0;
+    padding: .5rem .65rem;
+    width: 100%;
+    outline: none;
+    background-color: #ececec;
+    font-size: 1.2rem;
+}
+
+.time-settings-selections {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: 700;
+    color: #000000;
+
+}
+
+.color-settings-inputs {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.color-settings-input {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: 700;
+}
+
+.color-themes {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: .5rem;
+
+
+}
+
+.color-themes p {
+    font-weight: 700;
+    color: #aeaeae;
+
+}
+
+
+.color-card {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    flex: end;
+    align-items: center;
+    gap: .5rem;
+}
+
+
+.color-theme {
+    width: 40px;
+    height: 40px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.color-theme:hover {
+    opacity: .8;
+    transition: .2s;
+}
