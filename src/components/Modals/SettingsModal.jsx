@@ -1,6 +1,5 @@
 import React from "react";
 import {useRef} from "react";
-import ReactDOM from "react-dom";
 import "./SettingsModal.css";
 import {useContext} from "react";
 import Context from "../../store/Context";

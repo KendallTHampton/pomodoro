@@ -1,18 +1,15 @@
-import {useContext, useState} from 'react';
+import {useContext} from 'react';
 import './App.css';
-import Media from './components/Media';
 import Pomodoro from './components/Pomodoro';
-import Settings, {SettingsModal} from './components/Modals/SettingsModal';
-import {SettingsOutlined} from '@mui/icons-material';
 import Context from "./store/Context"
 import HelpIcon from '@mui/icons-material/Help';
 import Modal from './ui/Modal';
-import {color} from '@mui/system';
+
 
 
 function App() {
 
-  const {whichModal, dispatchWhichModal, userSettings, updateSettings} = useContext(Context)
+  const {dispatchWhichModal, userSettings, } = useContext(Context)
 
   const {colors, currentMode} = userSettings
 
