@@ -11,15 +11,14 @@ import PaletteIcon from "@mui/icons-material/Palette";
 const SettingsModal = (props) => {
     const {userSettings} = useContext(Context);
     const {dispatchWhichModal} = useContext(Context);
-    const {focusTime, breakTime, longBreakTime, cycles, changeColorOf, colors} =
+    const {focusTime, breakTime, longBreakTime, cycles, colors} =
         userSettings;
     console.log(colors)
     const {updateSettings} = useContext(Context);
     const setFocusTime = useRef(undefined);
     const setBreakTime = useRef(undefined);
     const setLongBreakTime = useRef(undefined);
-    const setCycles = useRef(undefined);
-    const setColors = useRef(undefined);
+
 
     return (
         <div className='settingsModal'>
