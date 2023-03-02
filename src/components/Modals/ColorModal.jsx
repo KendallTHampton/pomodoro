@@ -3,7 +3,7 @@ import Context from '../../store/Context'
 import {useContext} from 'react'
 import './ColorModal.css'
 import {Divider} from '@mui/material'
-import DisabledByDefaultIcon from '@mui/icons-material/DisabledByDefault';
+
 
 const ColorModal = () => {
     const {userSettings, updateSettings, dispatchWhichModal} = useContext(Context)
