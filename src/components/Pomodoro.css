@@ -110,6 +110,62 @@
 }
 
 @media screen and (max-width: 768px) {
+    .pomodoro-container {
+        width: 75%;
+        height: 60%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+    }
+
+
+
+    .settings-button {
+        width: 100px;
+    }
+
+
+    .time-display {
+        width: 200px;
+        height: 200px;
+    }
+
+    .time-display h1 {
+        font-size: 45px;
+    }
+
+    .time-display h2 {
+        font-size: 40px;
+    }
+
+    .pomodoro-actions button {
+        font-size: 16px;
+        padding: 10px;
+    }
+
+    .pomodoro-actions {
+        gap: 15px;
+
+    }
+
+    .pomodoro-container {
+        padding: 10px 0px;
+    }
+
+}
+
+@media screen and (max-width: 480px) {
+    .pomodoro-container {
+        width: 90%;
+        height: 60%;
+    }
+
+    .settings-button {
+        width: 100px;
+        color: rgb(0, 0, 0);
+    }
+
     .time-display {
         width: 200px;
         height: 200px;
