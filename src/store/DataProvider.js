@@ -88,11 +88,12 @@ const DataProvider = ({children}) => {
 
     useEffect(() => {
         const storedSettings = JSON.parse(localStorage.getItem("userSettings"));
-
-        if (storedSettings.focusTime === '' || storedSettings.focusTime === null) storedSettings.focusTime = '25'
-        if (storedSettings.breakTime === '' || storedSettings.breakTime === null) storedSettings.breakTime = '5'
-        if (storedSettings.longBreakTime === '' || storedSettings.longBreakTime === null) storedSettings.longBreakTime = '15'
-        if (storedSettings.cycles === '' || storedSettings.cycles === null) storedSettings.cycles = '4'
+        if (storedSettings) {
+            if (storedSettings.focusTime === '' || storedSettings.focusTime === null) storedSettings.focusTime = '25'
+            if (storedSettings.breakTime === '' || storedSettings.breakTime === null) storedSettings.breakTime = '5'
+            if (storedSettings.longBreakTime === '' || storedSettings.longBreakTime === null) storedSettings.longBreakTime = '15'
+            if (storedSettings.cycles === '' || storedSettings.cycles === null) storedSettings.cycles = '4'
+        }
 
         if (storedSettings) {
             dispatchUserSettings({
