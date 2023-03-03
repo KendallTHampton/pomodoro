@@ -11,7 +11,7 @@ const ColorModal = () => {
 
     const {changeColorOf, colors} = userSettings
 
-
+    //colors
 
     const allColors = [
         '#215385',
