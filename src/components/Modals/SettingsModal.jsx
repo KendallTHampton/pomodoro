@@ -1,5 +1,4 @@
 import React from "react";
-import {useRef} from "react";
 import "./SettingsModal.css";
 import {useContext} from "react";
 import Context from "../../store/Context";
@@ -8,16 +7,12 @@ import DisabledByDefaultIcon from "@mui/icons-material/DisabledByDefault";
 import AccessTimeRoundedIcon from "@mui/icons-material/AccessTimeRounded";
 import PaletteIcon from "@mui/icons-material/Palette";
 
-const SettingsModal = (props) => {
-    const {userSettings} = useContext(Context);
-    const {dispatchWhichModal} = useContext(Context);
-    const {focusTime, breakTime, longBreakTime, cycles, colors} =
-        userSettings;
-    console.log(colors)
-    const {updateSettings} = useContext(Context);
-    const setFocusTime = useRef(undefined);
-    const setBreakTime = useRef(undefined);
-    const setLongBreakTime = useRef(undefined);
+const SettingsModal = () => {
+
+    const {userSettings, updateSettings, dispatchWhichModal} =
+        useContext(Context);
+    const {focusTime, breakTime, longBreakTime, cycles, colors} = userSettings;
+    const timer = [focusTime, breakTime, longBreakTime, cycles]
 
 
     return (
@@ -26,9 +21,12 @@ const SettingsModal = (props) => {
                 <h4>Settings</h4>
                 <DisabledByDefaultIcon
                     className='settingsModal__closeButton'
-                    onClick={() =>
-                        dispatchWhichModal({type: "TOGGLE_CLOSE_MODAL"})
-                    }></DisabledByDefaultIcon>
+                    onClick={() => {
+                        timer.every(timerNumber => timerNumber > 0) ? dispatchWhichModal({type: 'TOGGLE_CLOSE_MODAL'}) : alert('You did not set the timer correctly. Please set the timer to a number greater than 0.')
+                    }}
+                >
+
+                </DisabledByDefaultIcon>
             </div>
             <Divider
                 sx={{
@@ -58,9 +56,17 @@ const SettingsModal = (props) => {
                                             type='number'
                                             min='1'
                                             max='60'
-                                            ref={setFocusTime}
-                                            placeholder={focusTime}
-                                            defaultValue={focusTime}
+                                            value={userSettings.focusTime}
+                                            onChange={(e) => {
+
+                                                if (e.target.value > 60) {
+                                                    e.target.value = 60;
+                                                }
+                                                updateSettings({
+                                                    focusTime: e.target.value,
+                                                });
+                                            }}
+
                                         />
                                     </div>
                                     <div className='time-settings-input'>
@@ -69,8 +75,15 @@ const SettingsModal = (props) => {
                                             type='number'
                                             min='1'
                                             max='60'
-                                            ref={setBreakTime}
-                                            defaultValue={breakTime}
+                                            value={userSettings.breakTime}
+                                            onChange={(e) => {
+                                                if (e.target.value > 60) {
+                                                    e.target.value = 60;
+                                                }
+                                                updateSettings({
+                                                    breakTime: e.target.value,
+                                                })
+                                            }}
                                         />
                                     </div>
                                     <div className='time-settings-input'>
@@ -79,8 +92,15 @@ const SettingsModal = (props) => {
                                             type='number'
                                             min='1'
                                             max='60'
-                                            ref={setLongBreakTime}
-                                            defaultValue={longBreakTime}
+                                            value={userSettings.longBreakTime}
+                                            onChange={(e) => {
+                                                if (e.target.value > 60) {
+                                                    e.target.value = 60;
+                                                }
+                                                updateSettings({
+                                                    longBreakTime: e.target.value,
+                                                })
+                                            }}
                                         />
                                     </div>
                                 </div>
@@ -92,7 +112,15 @@ const SettingsModal = (props) => {
                                             type='number'
                                             min='1'
                                             max='60'
-                                            defaultValue={cycles}
+                                            value={userSettings.cycles}
+                                            onChange={(e) => {
+                                                if (e.target.value > 60) {
+                                                    e.target.value = 60;
+                                                }
+                                                updateSettings({
+                                                    cycles: e.target.value,
+                                                })
+                                            }}
                                         />
                                     </div>
                                 </div>
@@ -121,37 +149,32 @@ const SettingsModal = (props) => {
                             <div className='color-settings-inputs'>
                                 <div className='color-settings-input'>
                                     <p>Color Themes</p>
-                                    <div className="color-themes">
-
+                                    <div className='color-themes'>
                                         <p>Choose Theme</p>
 
-                                        <div className="color-card">
-                                            {
+                                        <div className='color-card'>
+                                            {Object.entries(colors).map(([key, color], index) => {
+                                                return (
+                                                    <div
+                                                        className='color-theme'
+                                                        key={index}
+                                                        onClick={() => {
+                                                            dispatchWhichModal({
+                                                                type: "TOGGLE_COLOR_MODAL",
+                                                            });
+                                                            updateSettings({
+                                                                changeColorOf: key,
+                                                            });
+                                                        }}
+                                                        style={{
+                                                            backgroundColor: `${ color }`,
+                                                        }}>
 
-                                                Object.entries(colors).map(([key, color], index) => {
-                                                    return (
-                                                        <div
-                                                            className='color-theme'
-                                                            key={index}
-                                                            onClick={() => {
-                                                                dispatchWhichModal({type: "TOGGLE_COLOR_MODAL"});
-                                                                updateSettings({
-                                                                    changeColorOf: key,
-                                                                });
-                                                            }}
-                                                            style={{
-                                                                backgroundColor: `${ color }`,
-                                                            }}
-                                                        >
-
-                                                        </div>
-                                                    );
-                                                })
-                                            }
+                                                    </div>
+                                                );
+                                            })}
                                         </div>
-
                                     </div>
-
                                 </div>
                             </div>
                         </div>

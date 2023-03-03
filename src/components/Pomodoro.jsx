@@ -61,55 +61,7 @@ const Pomodoro = () => {
 
         setTimer(focusTime * 60)
     }
-    // const [color, setColor] = useState('#07c800')
-    // useEffect(() => {
-    //     function redToGreen(percentage) {
-    //         var r = 10, g, b = 0
-    //         if (timer === 0) {
-    //             r = 10
-    //             g = 0
-    //             b = 0
-    //         }
-    //         if (percentage < 50) {
-    //             r = 255
-    //             g = Math.round(5.10 * percentage)
 
-    //         } else {
-    //             g = 245
-    //             r = r += Math.round(500 - 5.10 * percentage)
-    //         }
-    //         var h = r * 0x10000 + g * 0x100 + b * 0x3
-    //         return '#' + ('000000' + h.toString(16)).slice(-6)
-    //     }
-
-    //     function hexToRGB(h) {
-    //         let r = 0, g = 0, b = 0, a = .7;
-
-
-    //         if (h.length === 4) {
-    //             r = "0x" + h[1] + h[1];
-    //             g = "0x" + h[2] + h[2];
-    //             b = "0x" + h[3] + h[3];
-
-
-    //         } else if (h.length === 7) {
-    //             r = "0x" + h[1] + h[2];
-    //             g = "0x" + h[3] + h[4];
-    //             b = "0x" + h[5] + h[6];
-    //         }
-
-    //         return "rgb(" + +r + "," + +g + "," + +b + "," + +a + ")";
-    //     }
-
-    //     let percent;
-    //     if (!onBreak) {
-    //         percent = (timer / (focusTime * 60) * 100)
-    //         setColor(hexToRGB(redToGreen(percent)))
-    //     }
-    //     if (onBreak) setColor('#a2a2a2')
-
-
-    // }, [color, timer, focusTime, breakTime, onBreak])
     const currentTime = `${ Math.floor(timer / 60).toString().padStart(2, '0') }:${ Math.floor(timer % 60).toString().padStart(2, '0') }`
 
     const modeChangeHandler = (e) => {

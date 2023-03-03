@@ -1,4 +1,4 @@
-import {useContext} from 'react';
+import {useContext, useEffect} from 'react';
 import './App.css';
 import Pomodoro from './components/Pomodoro';
 import Context from "./store/Context"
@@ -8,10 +8,16 @@ import Modal from './ui/Modal';
 
 
 function App() {
+  const {dispatchWhichModal, userSettings} = useContext(Context)
 
-  const {dispatchWhichModal, userSettings, } = useContext(Context)
 
-  const {colors, currentMode} = userSettings
+  const {colors, currentMode} = userSettings;
+
+
+  useEffect(() => {
+    localStorage.getItem('userSettings') && dispatchWhichModal({type: 'TOGGLE_CLOSE_MODAL'})
+  }, [dispatchWhichModal])
+
 
 
   return (

@@ -10,32 +10,36 @@ const Backdrop = ({onClick}) => (
     <div className="backdrop" onClick={onClick} />
 );
 
-const ModalContent = ({whichModal}) => {
-    if (whichModal.isSettingsModalOpen && !whichModal.isColorModalOpen) return <SettingsModal />
-    else if (whichModal.isHelpModalOpen) return <HelpModal />;
-    else if (whichModal.isColorModalOpen) return <ColorModal />;
+const ModalContent = ({whichModal: modal, updateSettings}) => {
+    if (modal.isSettingsModalOpen && !modal.isColorModalOpen) return <SettingsModal updateSettings={updateSettings} />
+    else if (modal.isHelpModalOpen) return <HelpModal />;
+    else if (modal.isColorModalOpen) return <ColorModal />;
     return null;
 }
 
 
 const Modal = () => {
-    const {whichModal, dispatchWhichModal} = useContext(Context);
+    const {modal, dispatchWhichModal, updateSettings, userSettings} = useContext(Context);
+    const {focusTime, breakTime, longBreakTime, cycles} = userSettings;
+    const timer = [focusTime, breakTime, longBreakTime, cycles]
+
     const modalRoot = document.getElementById('modal-root');
-    return whichModal.isModalOpen && (
+    return modal.isModalOpen && (
         <>
             {ReactDOM.createPortal(
                 <Backdrop onClick={() => {
-                    dispatchWhichModal({type: 'TOGGLE_CLOSE_MODAL'})
-                }
+                    timer.every(timerNumber => timerNumber > 0) ? dispatchWhichModal({type: 'TOGGLE_CLOSE_MODAL'}) : alert('You did not set the timer correctly. Please set the timer to a number greater than 0.')
 
+                    updateSettings()
+                }
                 } />,
                 document.getElementById('backdrop-root')
             )}
 
             {ReactDOM.createPortal(
-                <div className={!whichModal.isColorModalOpen ? "modal__overlay" : "color__overlay"}  >
+                <div className={!modal.isColorModalOpen ? "modal__overlay" : "color__overlay"}  >
                     <div className="modal__content">
-                        <ModalContent whichModal={whichModal} />
+                        <ModalContent whichModal={modal} />
                     </div>
                 </div>,
                 modalRoot

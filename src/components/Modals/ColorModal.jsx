@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useEffect} from 'react'
 import Context from '../../store/Context'
 import {useContext} from 'react'
 import './ColorModal.css'
@@ -6,7 +6,7 @@ import {Divider} from '@mui/material'
 
 
 const ColorModal = () => {
-    const {userSettings, updateSettings, dispatchWhichModal} = useContext(Context)
+    const {userSettings, updateSettings, modal, dispatchWhichModal} = useContext(Context)
 
 
     const {changeColorOf, colors} = userSettings
@@ -22,6 +22,7 @@ const ColorModal = () => {
         '#370f65',
         '#612d1c',
     ]
+
 
 
     return (
@@ -40,13 +41,14 @@ const ColorModal = () => {
                             key={index}>
                             <div className='palette__color'
                                 onClick={() => {
+                                    dispatchWhichModal({type: "TOGGLE_COLOR_MODAL"});
+
                                     updateSettings({
                                         colors: {
                                             ...colors,
                                             [changeColorOf]: color
-                                        },
-                                    })
-                                    dispatchWhichModal({type: "TOGGLE_COLOR_MODAL"})
+                                        }
+                                    });
                                 }}
                                 style={{
                                     backgroundColor: `${ color }`
