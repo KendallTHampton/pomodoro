@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react'
+import React from 'react'
 import Context from '../../store/Context'
 import {useContext} from 'react'
 import './ColorModal.css'
@@ -6,7 +6,7 @@ import {Divider} from '@mui/material'
 
 
 const ColorModal = () => {
-    const {userSettings, updateSettings, modal, dispatchWhichModal} = useContext(Context)
+    const {userSettings, updateSettings, dispatchWhichModal} = useContext(Context)
 
 
     const {changeColorOf, colors} = userSettings
