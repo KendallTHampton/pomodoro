@@ -56,8 +56,8 @@ li {
   align-items: center;
   justify-content: center;
   gap: 1rem;
-  margin: 0 auto;
-  padding: 1rem 0;
+  margin: auto;
+  padding: 2rem 0;
 }
 
 .header h1 {
@@ -94,13 +94,11 @@ li {
 
   /* Main App */
   .main {
-    height: 90vh;
+    height: 100vh;
   }
 
 
-  .main .title {
-    padding-top: 20px;
-  }
+
 
   .title {
     font-size: 26px;
